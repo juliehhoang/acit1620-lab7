@@ -122,18 +122,22 @@ export function setCard() {
     // hide the card
     cardNode.classList.toggle('hidden', true);
 
-     // cancel the animation
+    // cancel the animation
+    cardNode.classList.toggle('fade', false);
+    cardNode.parentElement.classList.toggle('flip', false);
 }
 
 export function showCard() {
     /**
      * Show the answer card and disable the 'show' button
      */
-    getCardNode().classList.toggle('hidden', false);
+    const cardNode = getCardNode();
+    cardNode.classList.toggle('hidden', false);
     getShowBtn().toggleAttribute('disabled', true);
 
     // animate the card
-
+    cardNode.classList.toggle('fade', true);
+    cardNode.parentElement.classList.toggle('flip', true);
 }
 
 export function toggleInputState(e) {
